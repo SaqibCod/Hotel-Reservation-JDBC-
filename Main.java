@@ -135,8 +135,15 @@ public class Main {
         }
     }
 
-    public static void exit(){
-
+    public static void exit() throws InterruptedException {
+        System.out.print("Exiting System");
+        int i = 5;
+        while (i-- > 0){
+            System.out.print(".");
+            Thread.sleep(400);
+        }
+        System.out.println();
+        System.out.println("Thank You for Visiting");
     }
 
     public static void main(String[] args) {
@@ -176,12 +183,13 @@ public class Main {
                     case 0:
                         exit();
                         sc.close();
+                        return;
                     default:
                         System.out.println("Invalid Value Choose! Try again");
                 }
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | InterruptedException e) {
             System.out.println(e.getMessage());
         }
 
